@@ -13,11 +13,11 @@ lamda = 2	#
 time = np.arange(0,30.01,.01)  # from 0 to 30 sec in 1 msec increments
 
 # Define the hrf.
-hrf = ((time-t0)**(n-1))**np.exp(-(time-t0)/lamda)/((lamda**n)*
-math.factorial(n-1)) 
-# TODO: confirm shape; create module version
+# TODO: move to file; confirm shape
+def hrf(t0, time, n, lamda):
+    return ((time-t0)**(n-1))**np.exp(-(time-t0)/lamda)/((lamda**n)*
+    math.factorial(n-1))
 
 # Plot the hrf.
-plt.plot(time,hrf)
- # axis([0 30 0 .12]);
+plt.plot(time,hrf(t0, time, n, lamda))
 plt.show()
