@@ -1,3 +1,5 @@
+# Box 3.1 from page 26.
+
 import math
 import numpy as np
 import matplotlib.pyplot as plt
@@ -11,8 +13,9 @@ lamda = 2	#
 time = np.arange(0,30,.01)  # from 0 to 30 sec in 1 msec increments
 
 # Define the hrf.
-hrf = ((time-t0)**(n-1))**np.exp(-(time-t0)/lamda)/((lamda**n)*math.factorial(n-1)) # TODO: confirm shape; create module version
-# hrf = ((t-T0).^(n-1)).*exp(-(t-T0)/lamda)/((lamda^n)*factorial(n-1)); # MATLAB version
+hrf = ((time-t0)**(n-1))**np.exp(-(time-t0)/lamda)/((lamda**n)*
+math.factorial(n-1)) 
+# TODO: confirm shape; create module version
 
 # Plot the hrf.
 plt.plot(time,hrf)
