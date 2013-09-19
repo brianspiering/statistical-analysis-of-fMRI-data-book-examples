@@ -1,6 +1,5 @@
 # Box 3.1 from page 26.
 
-import math
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -13,10 +12,7 @@ lamda = 2	#
 time = np.arange(0,30.01,.01)  # from 0 to 30 sec in 1 msec increments
 
 # Define the hrf.
-# TODO: move to file; confirm shape
-def hrf(t0, time, n, lamda):
-    return ((time-t0)**(n-1))**np.exp(-(time-t0)/lamda)/((lamda**n)*
-    math.factorial(n-1))
+from hrf import hrf
 
 # Plot the hrf.
 plt.plot(time,hrf(t0, time, n, lamda))
