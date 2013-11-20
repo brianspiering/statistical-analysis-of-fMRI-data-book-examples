@@ -1,8 +1,9 @@
-import os, sys
+import os
 import scipy.io
 
-file_name = 'box3_1.mat'
+directory = os.getcwd() + '/matlab_data/'
+file_name = 'box3_1'
 
-def load_matlab_data_file(filename):
-    os.chdir(os.path.dirname(sys.argv[0])+'/matlab_data/') # change to data dir
-    return scipy.io.loadmat(file_name) # load in data file
+def load_matlab_data_file(directory, filename):
+    os.chdir(directory) # change to data dir
+    return scipy.io.loadmat(file_name) # load data file
