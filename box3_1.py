@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # Define parameters of hemodynamic response function (hrf).
-t0 = 0 		#
+t0 = 0 	#
 n = 4 		#
 lamda = 2	#
 
