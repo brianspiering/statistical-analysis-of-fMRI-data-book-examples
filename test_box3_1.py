@@ -7,20 +7,22 @@ import unittest, os
 import scipy.io
 
 def load_matlab_data_file(directory, filename):
-    os.chdir(directory) # change to data dir
-    return scipy.io.loadmat(file_name) # load data file
+    return scipy.io.loadmat(directory + filename) # load data file
 
-# Load MATLAB data, aka the ground truth
-directory = os.getcwd()  + '/matlab_data/'
-file_name = 'box3_1'
-current_mat = load_matlab_data_file(directory, file_name) 
-
-class TestBox3_1(unittest.TestCase):
+class TestBoxAll(unittest.TestCase):
   
     # Test 1st dict key
     def test_hrf(self):
-        # TODO: impoort box3_1
-        self.assertEqual(current_mat['hrf'], box3_1.hrf)
+        name = 'box3_1'
+        
+        # Load MATLAB data, aka the ground truth
+        directory = os.getcwd()  + '/matlab_files/'
+        matlab_data = load_matlab_data_file(directory, name) 
+        
+        # Load Python data
+        python_data = __import__(name)
+        
+        self.assertEqual(matlab_data['hrf'], python_data.hrf)
        
     # TODO: Test all dict keys
 
