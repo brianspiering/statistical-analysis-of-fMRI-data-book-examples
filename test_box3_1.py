@@ -15,12 +15,12 @@ directory = os.getcwd()  + '/matlab_data/'
 file_name = 'box3_1'
 current_mat = load_matlab_data_file(directory, file_name) 
 
-
-class test_box3_1(unittest.TestCase):
+class TestBox3_1(unittest.TestCase):
   
     # Test 1st dict key
     def test_hrf(self):
-       assertEqual(current_mat['hrf'], box3_1.hrf)
+        # TODO: impoort box3_1
+        self.assertEqual(current_mat['hrf'], box3_1.hrf)
        
     # TODO: Test all dict keys
 
