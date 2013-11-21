@@ -7,11 +7,11 @@ import unittest, os
 import scipy.io
 
 def load_matlab_data_file(directory, filename):
-    return scipy.io.loadmat(directory + filename) # load data file
+    return scipy.io.loadmat(directory + filename) # load MATLAB file into dict
 
 class TestBoxAll(unittest.TestCase):
   
-    # Test 1st dict key
+    # Test hrf function values
     def test_hrf(self):
         name = 'box3_1'
         
