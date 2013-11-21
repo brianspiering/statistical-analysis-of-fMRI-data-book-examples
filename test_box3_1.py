@@ -11,18 +11,19 @@ def load_matlab_data_file(directory, filename):
 
 class TestBoxAll(unittest.TestCase):
   
-    # Test hrf function values
-    def test_hrf(self):
-        name = 'box3_1'
+    # Test T0 value
+    def test_T0(self):
+        current_file_name = 'box3_1'
         
         # Load MATLAB data, aka the ground truth
         directory = os.getcwd()  + '/matlab_files/'
-        matlab_data = load_matlab_data_file(directory, name) 
+        matlab_data = load_matlab_data_file(directory, current_file_name) 
         
         # Load Python data
-        python_data = __import__(name)
+        python_data = __import__(current_file_name)
+        # TODO: turn off plot upon import via __main__
         
-        self.assertEqual(matlab_data['hrf'], python_data.hrf)
+        self.assertEqual(matlab_data['T0'], python_data.T0)
        
     # TODO: Test all dict keys
 

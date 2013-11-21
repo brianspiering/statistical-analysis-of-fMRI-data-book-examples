@@ -15,5 +15,5 @@ time = np.arange(0,30.01,.01)  # from 0 to 30 sec in 1 msec increments
 from hrf import hrf
 
 # Plot the hrf.
-plt.plot(time,hrf(t0, time, n, lamda))
+plt.plot(time,hrf(T0, time, n, lamda))
 plt.show()
