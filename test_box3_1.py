@@ -6,10 +6,10 @@ import scipy.io
 def load_matlab_data_file(directory, filename):
     return scipy.io.loadmat(directory + filename) # load MATLAB file into dict
 
-class TestBoxAll(unittest.TestCase):
+class TestBoxValues(unittest.TestCase):
       
     # Test all dict keys 
-    def test_all_keys(self):
+    def test_values_via_keys(self):
         current_file_name = 'box3_1' # TODO: Generalize to all files
         
         # Load MATLAB data, aka the ground truth
@@ -22,11 +22,18 @@ class TestBoxAll(unittest.TestCase):
     
         for k in matlab_data.keys():
             if not k.startswith('__'): # ignore class attributes
-                if matlab_data[k].shape[1] == 1: # ignore nonscalar-valued arrays
-                    # TODO: add test for vector values
+                if matlab_data[k].shape[1] == 1: # test scalar values
                     current_python_variable_value = eval("python_data." + k)
                     self.assertEqual(matlab_data[k], 
                                      current_python_variable_value)
+                elif matlab_data[k].shape[1] > 1:  # test vector values
+                   """ This part will be tricky.
+                   python_data.hrf is a function that return a vector
+                   """
+                   pass
+#                   current_python_variable_value = eval("python_data." + k)
+#                   self.assertEqual(matlab_data[k], 
+#                                     current_python_variable_value)
 
 if __name__== "__main__":
     unittest.main()
